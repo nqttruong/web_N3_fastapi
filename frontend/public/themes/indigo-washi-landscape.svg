@@ -1,0 +1,17 @@
+<!-- Original vector artwork created for this application; no third-party image asset. Decorative use only. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" fill="none">
+  <defs>
+    <linearGradient id="paper" x2="0" y2="1"><stop stop-color="#e8edf0"/><stop offset="1" stop-color="#f4f0e5"/></linearGradient>
+    <linearGradient id="water" x2="0" y2="1"><stop stop-color="#87a8b5"/><stop offset="1" stop-color="#d5e1df"/></linearGradient>
+  </defs>
+  <path fill="url(#paper)" d="M0 0h1200v360H0z"/>
+  <circle cx="940" cy="90" r="43" fill="#d5b979" opacity=".65"/>
+  <path fill="#667f91" d="m330 256 210-208 210 208z" opacity=".86"/>
+  <path fill="#f5f0e5" d="m540 48 43 44-32-10-17 22-22-13-33 17z"/>
+  <path fill="#82999b" d="M0 233q165-37 330 0t330 0 330 0 210 0v127H0z"/>
+  <path fill="url(#water)" d="M0 263q210-26 420 0t420 0 360 0v97H0z"/>
+  <path stroke="#f7f3e9" stroke-opacity=".75" stroke-width="3" d="M90 296q150-13 300 0m160 20q150-12 300 0m100-25q90-9 180 0"/>
+  <g stroke="#405b68" stroke-width="8" stroke-linecap="round" opacity=".8"><path d="M95 266V105m-23 161 23-113m-42 113 42-73m23 73-23-117m44 117-44-82M1080 265V117m-21 148 21-108m-40 108 40-68m23 68-23-106m42 106-42-73"/></g>
+  <g fill="#5f7f78" opacity=".7"><path d="M48 148q47-67 94 0-47 20-94 0Zm20 43q47-67 94 0-47 20-94 0Zm-26 45q47-67 94 0-47 20-94 0Zm1005-85q47-67 94 0-47 20-94 0Zm20 43q47-67 94 0-47 20-94 0Zm-26 45q47-67 94 0-47 20-94 0Z"/></g>
+  <path stroke="#faf7ee" stroke-opacity=".35" d="M0 22h1200M0 34h1200M0 46h1200"/>
+</svg>

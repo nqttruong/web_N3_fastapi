@@ -1,0 +1,13 @@
+:root { color-scheme: light dark; font: 14px/1.5 system-ui, sans-serif; }
+body { margin: 0; padding: 28px; background: Canvas; color: CanvasText; }
+main { width: min(100%, 640px); margin: auto; }
+h1 { font-size: 22px; }
+form { display: grid; gap: 8px; margin-top: 22px; }
+label { margin-top: 8px; font-weight: 650; }
+input { min-height: 38px; width: 100%; border: 1px solid GrayText; border-radius: 6px; padding: 8px; font: inherit; }
+button { min-height: 38px; border: 0; border-radius: 6px; padding: 8px 14px; background: #176b50; color: white; font: inherit; font-weight: 650; cursor: pointer; }
+.secondary { background: transparent; border: 1px solid GrayText; color: CanvasText; }
+.buttons { display: flex; gap: 9px; margin-top: 12px; }
+.hint { color: GrayText; font-size: 12px; }
+#status[data-tone="error"] { color: #d05050; }
+#status[data-tone="success"] { color: #198f60; }

@@ -1,0 +1,20 @@
+# Copy and adapt this file only when deploying. Do not install multiple schedulers.
+# Replace /ABSOLUTE/PATH/TO/fastapi and the user account for the target machine.
+[Unit]
+Description=JLPT AI Review learning content sync worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+WorkingDirectory=/ABSOLUTE/PATH/TO/fastapi/backend
+EnvironmentFile=/ABSOLUTE/PATH/TO/fastapi/.env
+ExecStart=/ABSOLUTE/PATH/TO/fastapi/backend/.venv/bin/python -m app.learning_content.worker
+Restart=on-failure
+RestartSec=15s
+TimeoutStopSec=30s
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

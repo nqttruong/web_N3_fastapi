@@ -1,0 +1,32 @@
+import type { ExamListParams } from "./endpoints";
+
+export const queryKeys = {
+  dashboard: ["dashboard"] as const,
+  exams: (params: ExamListParams = {}) => ["exams", params] as const,
+  examsRoot: ["exams"] as const,
+  exam: (id: string) => ["exam", id] as const,
+  passages: (examId: string) => ["exam", examId, "passages"] as const,
+  questions: (examId: string, includeAnswers = true) =>
+    ["exam", examId, "questions", { includeAnswers }] as const,
+  attempts: (params: object = {}) => ["attempts", params] as const,
+  attemptsRoot: ["attempts"] as const,
+  attempt: (id: string) => ["attempt", id] as const,
+  importCapabilities: ["imports", "capabilities"] as const,
+  imports: (params: object = {}) => ["imports", "list", params] as const,
+  importsRoot: ["imports"] as const,
+  importDraft: (id: string) => ["imports", "draft", id] as const,
+  aiCapabilities: ["ai", "capabilities"] as const,
+  question: (id: string) => ["question", id] as const,
+  questionExplanations: (id: string, attemptAnswerId?: string) => ["explanations", "question", id, attemptAnswerId ?? null] as const,
+  explanationsRoot: ["explanations"] as const,
+  attemptExplanations: (attemptId: string) => ["explanations", "attempt", attemptId] as const,
+  knowledgeRoot: ["knowledge"] as const,
+  knowledgeList: (params: object) => ["knowledge", "list", params] as const,
+  knowledge: (id: string) => ["knowledge", "item", id] as const,
+  reviewsRoot: ["reviews"] as const,
+  reviews: (bucket: string) => ["reviews", "list", bucket] as const,
+  reviewSession: (id: string) => ["reviews", "session", id] as const,
+  weaknesses: (window: string) => ["analytics", "weaknesses", window] as const,
+  reviewProgress: ["analytics", "review-progress"] as const,
+  practice: (knowledgeId: string) => ["practice", knowledgeId] as const,
+};

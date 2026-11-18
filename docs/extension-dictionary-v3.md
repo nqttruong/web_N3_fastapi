@@ -1,0 +1,19 @@
+# Dictionary and My Words extension (V3)
+
+**Implementation state:** Chrome/Edge MV3 and Firefox MV3 packages build to `extension/dist-v3-1/chrome` and `extension/dist-v3-1/firefox`. Unit tests cover selection-to-hover, popup persistence, provider-only fields, explicit save, local cache, offline outbox retry and existing capture. Actual browser interaction is still pending. Browser pages such as `chrome://`, `about:`, extension pages, and sites where optional permission is denied cannot be injected.
+
+## Install and connect
+
+Run `cd extension && npm run check`. Load `extension/dist-v3-1/chrome` unpacked in Chrome/Edge developer mode. In Firefox, load `extension/dist-v3-1/firefox/manifest.json` as a temporary add-on for local testing; the manifest has a Firefox-specific background page and ID. These builds are not published to any store. The existing JLPT capture remains in the action popup.
+
+Open Web `/settings/sync`, create a **My Words extension credential**, and paste it into extension Options under the separate dictionary credential field. The old import token is only for JLPT capture. Options accepts only loopback backend/Web URLs (`127.0.0.1` or `localhost`), keeping the personal app local for this build. The dictionary credential is hash-at-rest on the backend, scoped to `/my-words/extension`, and stored in extension local storage on the browser. It is never sent to the selected website or to the content script. Revoke the credential in Web Settings if the browser is lost.
+
+## Selection workflow
+
+In the extension popup, enable the helper for the current site and grant its optional site permission. Select at most 200 characters. A small `訳` icon appears near the selection; hover or keyboard-focus it to look up without opening a JLPT AI Review tab. The popup remains open while the pointer is over its content. Alternatively use the selection context menu. Only the selected text is sent to the local backend; the whole page is not read or sent. Exact Japanese entries can come from the packaged personal dictionary offline or from approved Web vocabulary with provenance and reading. Meaning fields and IPA are filled only when the provider returns them; absent values stay blank with an explanation. Current configured sources provide Japanese reading and Vietnamese meanings, but do not provide full JA/EN/VI translation or English IPA. No generated translation is shown. The user can edit fields, and the browser TTS button works only if a matching system voice is installed.
+
+The background worker sends the save request with the separate credential, and a successful response is shown as synced. `request_id` stays stable across retry; backend deduplicates exact language/form/meanings and rejects conflicting request IDs. On network failure, the extension stores a draft in persistent `chrome.storage.local` (maximum 100) and says it has **not** reached Web. The service worker retries on startup, on a 15-minute alarm, and after a successful connection check. Other HTTP errors (including revoked credentials) do not silently become queued success.
+
+“Enable Text Selection” is disabled by default and configured per hostname. For the allowed page, the helper temporarily changes computed `user-select:none` elements to selectable text and restores each original inline style when disabled. It does not bypass access controls, DRM or paywalls. Some site scripts or browser-protected pages cannot be changed; disable the helper from the extension popup if it interferes with a page.
+
+The dictionary route is local and read-only. No third-party translation provider receives text, and no OpenAI/ChatGPT credential is used. Full JA↔EN↔VI translation, verified IPA for English, and live Chrome/Edge/Firefox QA remain open work. Chrome is installed in the current environment but extension interaction did not initialize in headless mode; Firefox is unavailable.

@@ -1,0 +1,14 @@
+{
+  "name": "jlpt-ai-review-dethitiengnhat-extension",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:chrome && npm run build:firefox",
+    "build:chrome": "../frontend/node_modules/.bin/tsc -p tsconfig.json --outDir dist-v3-1/chrome && node scripts/copy-static.mjs chrome dist-v3-1/chrome",
+    "build:firefox": "../frontend/node_modules/.bin/tsc -p tsconfig.json --outDir dist-v3-1/firefox && node scripts/copy-static.mjs firefox dist-v3-1/firefox",
+    "typecheck": "../frontend/node_modules/.bin/tsc --noEmit -p tsconfig.json",
+    "test": "../frontend/node_modules/.bin/vitest run --config vitest.config.ts",
+    "check": "npm run typecheck && npm test && npm run build"
+  }
+}

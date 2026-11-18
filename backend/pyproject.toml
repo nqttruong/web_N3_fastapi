@@ -1,0 +1,65 @@
+[project]
+name = "jlpt-ai-review-backend"
+version = "0.1.0"
+description = "JLPT AI Review — backend API (PR1 foundation)"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "fastapi>=0.115,<1.0",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.9,<3",
+    "pydantic-settings>=2.5,<3",
+    "sqlalchemy>=2.0.35,<2.1",
+    "alembic>=1.13,<2",
+    "psycopg[binary]>=3.2,<4",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.2",
+    "pillow>=11",
+    "python-multipart>=0.0.18",
+    "openai>=2,<3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "httpx>=0.27",
+    "ruff>=0.6",
+    "mypy>=1.11",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+approval_policy = "never"
+sandbox_mode = "workspace-write"
+filterwarnings = [
+    # Starlette nudges towards an optional httpx successor; httpx is still supported.
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "N", "RUF"]
+ignore = [
+    "B008",   # FastAPI Depends() in defaults is idiomatic
+    "RUF001", "RUF002", "RUF003",  # Japanese full-width characters are intentional
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+exclude = ["alembic/versions"]
+
+[tool.ruff.lint.per-file-ignores]
+"alembic/versions/*" = ["E501"]  # generated SQL literals
+"tests/*" = ["E501"]  # long Japanese test literals
+
+[tool.ruff.lint.isort]
+known-third-party = ["alembic"]  # the local alembic/ folder is not a package
+known-first-party = ["app", "tests"]

@@ -1,0 +1,17 @@
+<!-- Original vector artwork created for this application; no third-party image asset. Decorative use only. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" fill="none">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#f9dfe7"/><stop offset="1" stop-color="#fff8f5"/></linearGradient>
+    <linearGradient id="lake" x2="0" y2="1"><stop stop-color="#b7d9d1"/><stop offset="1" stop-color="#e5f1e9"/></linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v360H0z"/>
+  <circle cx="970" cy="83" r="43" fill="#f6c9c8" opacity=".8"/>
+  <path fill="#718c86" d="m390 265 210-218 211 218z" opacity=".75"/>
+  <path fill="#fffaf7" d="m600 47 45 47-33-11-20 23-22-14-34 18z"/>
+  <path fill="#8ea99a" d="M0 231q150-40 305 0t302 0 303 0 290 0v129H0z"/>
+  <path fill="url(#lake)" d="M0 261q200-28 400 0t400 0 400 0v99H0z"/>
+  <path stroke="#fff" stroke-opacity=".65" stroke-width="3" d="M80 299q160-14 320 0m160 18q160-13 320 0m120-24q90-9 180 0"/>
+  <g fill="#d98f9d" opacity=".78"><circle cx="120" cy="88" r="8"/><circle cx="153" cy="106" r="6"/><circle cx="178" cy="73" r="7"/><circle cx="1090" cy="164" r="7"/><circle cx="1123" cy="145" r="5"/><circle cx="1064" cy="137" r="6"/></g>
+  <path stroke="#755e50" stroke-width="8" stroke-linecap="round" d="M90 267V121m0 49-36-28m36 5 34-35m1030 159V148m0 41-34-29m34 4 31-32"/>
+  <g fill="#d891a1" opacity=".72"><circle cx="55" cy="127" r="16"/><circle cx="86" cy="109" r="18"/><circle cx="119" cy="123" r="17"/><circle cx="1050" cy="146" r="16"/><circle cx="1084" cy="128" r="18"/><circle cx="1120" cy="141" r="17"/></g>
+</svg>

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "JLPT AI Review — Capture & Dictionary",
+  "description": "Nhập đề JLPT và tra đoạn văn bản bạn chủ động chọn.",
+  "version": "0.1.0",
+  "minimum_chrome_version": "116",
+  "action": {
+    "default_title": "Nhập đề vào JLPT AI Review",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "options_page": "options/options.html",
+  "permissions": ["activeTab", "scripting", "storage", "contextMenus", "alarms"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "https://127.0.0.1/*",
+    "https://localhost/*"
+  ]
+}

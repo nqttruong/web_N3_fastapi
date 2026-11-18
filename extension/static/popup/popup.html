@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JLPT AI Review</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>JLPT AI Review</h1>
+          <p class="subtitle">Nhập đề Dethitiengnhat · N3</p>
+        </div>
+        <button id="settings" class="icon-button" type="button" aria-label="Cài đặt">⚙</button>
+      </header>
+      <p id="status" class="status" role="status" aria-live="polite">Đang kiểm tra trang và backend…</p>
+      <div class="actions">
+        <button id="extract" type="button">Nhận diện câu hỏi</button>
+      </div>
+      <section id="summary" class="summary" aria-label="Tóm tắt capture" hidden></section>
+      <section id="warnings" class="warnings" aria-label="Cảnh báo"></section>
+      <div class="actions">
+        <button id="show-data" class="secondary" type="button" disabled>Xem dữ liệu</button>
+        <button id="send" type="button" disabled>Chuyển sang JLPT AI Review</button>
+      </div>
+      <pre id="data" class="data" hidden></pre>
+      <p class="footnote">Đề chỉ được lưu sau khi bạn kiểm tra và xác nhận trong trang preview.</p>
+      <hr />
+      <h2>Tra từ trên trang</h2>
+      <p class="footnote">Bật riêng cho website này. Chỉ đoạn bạn chủ động bôi đen mới được tra.</p>
+      <div class="actions"><button id="dictionary-enable" type="button">Bật tra từ</button><button id="dictionary-disable" class="secondary" type="button">Tắt cho website này</button></div>
+      <div class="actions"><button id="selection-toggle" class="secondary" type="button">Enable Text Selection: tắt</button></div>
+      <p id="dictionary-status" class="status" role="status" aria-live="polite"></p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
